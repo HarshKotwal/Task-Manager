@@ -4,7 +4,7 @@ const { tasks } = require("./db");
 const app = express();
 app.use(express.json());
 
-app.post("/todo", async function (req, res) {
+app.post("/tasks", async function (req, res) {
   const createPayload = req.body;
   const parseCreate = createTask.safeParse(createPayload);
   if (!parsePayload.success) {
@@ -49,3 +49,5 @@ app.put("/update", async function (req, res) {
     msg: "Task marked as completed",
   });
 });
+
+app.listen(5000);
