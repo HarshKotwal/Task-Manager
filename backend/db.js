@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://admin:harsh1608@cluster0.7f5pyju.mongodb.net/tasks"
-);
+require("dotenv").config();
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 const taskSchema = mongoose.Schema({
   title: String,

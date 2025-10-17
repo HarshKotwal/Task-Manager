@@ -1,13 +1,19 @@
 const express = require("express");
 const { createTask, updateTask } = require("./types");
 const { tasks } = require("./db");
+const cors = require("cors");
 const app = express();
+const dotenv = require("dotenv");
+
 app.use(express.json());
+app.use(cors());
+
+dotenv.config();
 
 app.post("/tasks", async function (req, res) {
   const createPayload = req.body;
   const parseCreate = createTask.safeParse(createPayload);
-  if (!parsePayload.success) {
+  if (!parseCreate.success) {
     res.status(411).json({
       msg: "You sent the wrong inputs",
     });
@@ -50,4 +56,6 @@ app.put("/update", async function (req, res) {
   });
 });
 
-app.listen(5000);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});
