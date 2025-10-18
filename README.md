@@ -1,6 +1,6 @@
 ## Task Manager
 
-This project contains a simple TODO applications.
+This project contains a simple Task Manager applications.
 It has the following todos
 
 - Anyone can create todo
